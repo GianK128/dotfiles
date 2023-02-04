@@ -2,6 +2,7 @@ local status, nvim_lsp = pcall(require, "lspconfig")
 if (not status) then return end
 
 local protocol = require('vim.lsp.protocol')
+local util = require('lspconfig/util')
 
 local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
 local enable_format_on_save = function(_, bufnr)
@@ -91,6 +92,23 @@ nvim_lsp.tsserver.setup {
     filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
     cmd = { "typescript-language-server", "--stdio" },
     capabilities = capabilities
+}
+
+-- Go language server
+-- Commands required: go install golang.org/x/tools/gopls@latest -> sudo apt install gopls
+nvim_lsp.gopls.setup {
+    on_attach = on_attach,
+    cmd = {"gopls", "serve"},
+    filetypes = {"go", "gomod"},
+    root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+            },
+            staticcheck = true,
+        },
+    },
 }
 
 -- Nvim LSP
