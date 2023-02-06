@@ -21,10 +21,20 @@ packer.startup(function(use)
     use 'neovim/nvim-lspconfig' -- LSP
     use 'L3MON4D3/LuaSnip' -- Snippet engine
     use {
-        'nvim-treesitter/nvim-treesitter',
+        'nvim-treesitter/nvim-treesitter', -- Syntax highlighting
         run = function()
             local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
             ts_update()
         end,
+    }
+    use 'windwp/nvim-ts-autotag' -- Auto closing tags
+    use 'windwp/nvim-autopairs' -- Auto closing brackets
+    use {
+        'nvim-telescope/telescope.nvim', -- File finder
+        requires = { 'nvim-lua/plenary.nvim', opt = true } -- Lua utils and grep utils
+    }
+    use {
+        'nvim-telescope/telescope-file-browser.nvim', -- File manipulation for Telescope
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
     }
 end)
