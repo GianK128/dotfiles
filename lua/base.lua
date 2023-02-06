@@ -23,3 +23,5 @@ vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 vim.opt.wrap = true -- Wrap lines
 vim.opt.mouse = "a"
+
+vim.opt.clipboard = 'unnamedplus'
