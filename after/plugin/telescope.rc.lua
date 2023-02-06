@@ -13,7 +13,7 @@ local fb_actions = require 'telescope'.extensions.file_browser.actions
 telescope.setup({
     defaults = {
         mappings = {
-            i = {
+            n = {
                 ["<esc>"] = actions.close
             },
         },
