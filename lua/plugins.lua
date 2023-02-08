@@ -40,4 +40,9 @@ packer.startup(function(use)
     }
     use {'romgrk/barbar.nvim', requires = 'nvim-tree/nvim-web-devicons'} -- Tabs
     use {'nvim-tree/nvim-tree.lua', requires = 'nvim-tree/nvim-web-devicons', tag = 'nightly'} -- Directory Tree 
+    use { 
+        'glepnir/lspsaga.nvim',    -- LSP UI for different functionalities
+        branch = 'main',
+        requires = 'nvim-tree/nvim-web-devicons'
+    }
 end)
