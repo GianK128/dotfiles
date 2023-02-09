@@ -46,4 +46,6 @@ packer.startup(function(use)
         requires = 'nvim-tree/nvim-web-devicons'
     }
     use 'jose-elias-alvarez/null-ls.nvim' -- LSP diagnostics, code actions, etc injections via Lua
+    use 'lewis6991/gitsigns.nvim' -- Git markers
+    use 'dinhhuy258/git.nvim' -- Git extension for commands
 end)
