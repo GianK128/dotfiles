@@ -45,4 +45,5 @@ packer.startup(function(use)
         branch = 'main',
         requires = 'nvim-tree/nvim-web-devicons'
     }
+    use 'jose-elias-alvarez/null-ls.nvim' -- LSP diagnostics, code actions, etc injections via Lua
 end)
