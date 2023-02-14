@@ -83,11 +83,11 @@ barbar.setup({
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-map('n', '<Tab>', '<Cmd>BufferPrevious<CR>', opts)  -- Move to next
-map('n', '<S-Tab>', '<Cmd>BufferNext<CR>', opts)    -- Move to previous
+map('n', '<S-Tab>', '<Cmd>BufferPrevious<CR>', opts)  -- Move to next
+map('n', '<Tab>', '<Cmd>BufferNext<CR>', opts)    -- Move to previous
 
-map('n', '<C-Tab>', '<Cmd>BufferMovePrevious<CR>', opts)    -- Re-order to next
-map('n', '<C-s-Tab>', '<Cmd>BufferMoveNext<CR>', opts)      -- Re-order to previous
+map('n', '<C-S-Tab>', '<Cmd>BufferMovePrevious<CR>', opts)    -- Re-order to next
+map('n', '<C-Tab>', '<Cmd>BufferMoveNext<CR>', opts)      -- Re-order to previous
 
 -- Integration with NvimTree API
 local nvim_tree_events = require('nvim-tree.events')
