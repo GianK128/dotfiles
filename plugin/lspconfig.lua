@@ -91,7 +91,8 @@ nvim_lsp.tsserver.setup {
     on_attach = on_attach,
     filetypes = { "typescript", "typescriptreact", "typescript.tsx" },
     cmd = { "typescript-language-server", "--stdio" },
-    capabilities = capabilities
+    capabilities = capabilities,
+    single_file_support = false
 }
 
 -- Go language server
@@ -110,6 +111,12 @@ nvim_lsp.gopls.setup {
         },
     },
 }
+
+-- Deno language server
+nvim_lsp.denols.setup({
+    on_attach = on_attach,
+    root_dir = util.root_pattern("deno.json", "deno.jsonc"),
+})
 
 -- Nvim LSP
 
