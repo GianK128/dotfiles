@@ -12,8 +12,6 @@ saga.setup({
 })
 
 local keymap = vim.keymap.set
-
-local diagnostic = require('lspsaga.diagnostic')
 local opts = { noremap = true, silent = true }
 
 -- Find the symbol's definition

@@ -9,7 +9,6 @@ vim.cmd [[packadd packer.nvim]]
 packer.startup(function(use)
     use 'wbthomason/packer.nvim'
     use 'folke/tokyonight.nvim'
-    -- use 'navarasu/onedark.nvim'
     use 'kyazdani42/nvim-web-devicons'
     use {
         'nvim-lualine/lualine.nvim',
@@ -17,10 +16,10 @@ packer.startup(function(use)
     }
     use 'nvim-lua/plenary.nvim' -- Common utilities
     use 'onsails/lspkind-nvim' -- vscode-like pictograms
-    use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
-    use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
-    use 'hrsh7th/nvim-cmp' -- Completion
-    use 'neovim/nvim-lspconfig' -- LSP
+    -- use 'hrsh7th/cmp-buffer' -- nvim-cmp source for buffer words
+    -- use 'hrsh7th/cmp-nvim-lsp' -- nvim-cmp source for neovim's built-in LSP
+    -- use 'hrsh7th/nvim-cmp' -- Completion
+    -- use 'neovim/nvim-lspconfig' -- LSP
     use 'L3MON4D3/LuaSnip' -- Snippet engine
     use {
         'nvim-treesitter/nvim-treesitter', -- Syntax highlighting
@@ -41,12 +40,13 @@ packer.startup(function(use)
     }
     use {'romgrk/barbar.nvim', requires = 'nvim-tree/nvim-web-devicons'} -- Tabs
     use {'nvim-tree/nvim-tree.lua', requires = 'nvim-tree/nvim-web-devicons', tag = 'nightly'} -- Directory Tree 
-    use { 
-        'glepnir/lspsaga.nvim',    -- LSP UI for different functionalities
-        branch = 'main',
-        requires = 'nvim-tree/nvim-web-devicons'
-    }
+    --use {
+    --    'glepnir/lspsaga.nvim',    -- LSP UI for different functionalities
+    --    branch = 'main',
+    --    requires = 'nvim-tree/nvim-web-devicons'
+    --}
     use 'jose-elias-alvarez/null-ls.nvim' -- LSP diagnostics, code actions, etc injections via Lua
     use 'lewis6991/gitsigns.nvim' -- Git markers
     use 'dinhhuy258/git.nvim' -- Git extension for commands
+    use { 'neoclide/coc.nvim', branch='release' } -- LSP extensions and configuration
 end)
