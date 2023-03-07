@@ -49,4 +49,8 @@ packer.startup(function(use)
     use 'lewis6991/gitsigns.nvim' -- Git markers
     use 'dinhhuy258/git.nvim' -- Git extension for commands
     use { 'neoclide/coc.nvim', branch='release' } -- LSP extensions and configuration
+    use {
+        'goolord/alpha-nvim',                       -- Greeter for NVIM
+        requires = {'nvim-tree/nvim-web-devicons'}
+    }
 end)
