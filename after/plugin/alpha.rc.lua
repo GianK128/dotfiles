@@ -31,25 +31,37 @@ dashboard.section.buttons.val = {
     dashboard.button("e", "  New file", ":ene <BAR> startinsert <CR>"),
     dashboard.button("r", "  Recently used files", ":Telescope oldfiles <CR>"),
     dashboard.button("g", "  Find text", ":Telescope live_grep <CR>"),
+    dashboard.button("u", "⟳  Update packages", ":PackerUpdate <CR>"),
     dashboard.button("c", "  Configuration", ":e $MYVIMRC<CR>"),
     dashboard.button("q", "  Quit Neovim", ":qa<CR>"),
 }
 
+local date = os.date "%d-%m-%Y %H:%M:%S"
+local date_header = {
+    type = "text",
+    val = "┌─    Today is " .. date .. "  ─┐",
+    opts = {
+        position = "center",
+    }
+}
+
+local plugins = vim.fn.len(vim.fn.globpath('~/.local/share/nvim/site/pack/packer/start', '*', 0, 1))
+local plugin_count = {
+    type = "text",
+    val = "└─   There are " .. plugins .. " installed plugins ─┘",
+    opts = {
+        position = "center",
+    }
+}
+
 -- Footer configuration
 local function footer()
-    local plugin_count = vim.fn.len(vim.fn.globpath('~/.local/share/nvim/site/pack/packer/start', '*', 0, 1))
-    local datetime = os.date "%d-%m-%Y %H:%M:%S"
-    local plugins_text = "   "
-      .. plugin_count
-      .. " plugins"
-      .. "   v"
+    local plugins_text = " Neovim v"
       .. vim.version().major
       .. "."
       .. vim.version().minor
       .. "."
       .. vim.version().patch
-      .. "   "
-      .. datetime
 
     return plugins_text
 end
@@ -73,6 +85,9 @@ dashboard.config.layout = {
 	{ type = "padding", val = 1 },
 	dashboard.section.header,
     { type = "padding", val = 1 },
+    date_header,
+    plugin_count,
+    { type = "padding", val = 2 },
 	dashboard.section.buttons,
 	{ type = "padding", val = 1 },
 	dashboard.section.footer,
